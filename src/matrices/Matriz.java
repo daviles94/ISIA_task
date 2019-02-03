@@ -14,13 +14,13 @@ import java.util.Random;
  * @author galvez
  */
 public class Matriz {
-    private int[][]datos;
+    private double[][]datos;
     private Random rnd = new Random();
     
     public Matriz(int filas, int columnas, boolean inicializarAleatorio){
-        datos = new int[columnas][];
+        datos = new double[columnas][];
         for(int i=0; i<columnas; i++){
-            datos[i] = new int[filas];
+            datos[i] = new double[filas];
             if (inicializarAleatorio)
                 for(int j=0; j<filas; j++)
                     datos[i][j] = rnd.nextInt(100);
@@ -55,7 +55,7 @@ public class Matriz {
         for (int i = 0; i < getDimension().width; i++) {
             ret += "(";
             for (int j = 0; j < getDimension().height; j++) {  
-                ret += String.format("%3d", datos[i][j]); 
+                ret += String.format("%3.4f", datos[i][j]); 
                 if (j != getDimension().height - 1) ret += ", ";
             } 
             ret += ")";
