@@ -17,6 +17,25 @@ public class Matrices {
         } catch (DimensionesIncompatibles ex) {
             ex.printStackTrace();
         }
+        
+        Matriz cuadrada = new Matriz(3,3,true);
+        
+        System.out.println(cuadrada);
+        
+        try{
+            System.out.println(Matriz.getDeterminante(cuadrada));
+            System.out.println(Matriz.matrizCofactores(cuadrada));
+        } catch(DimensionesIncompatibles ex){
+            ex.printStackTrace();
+        }
+        
+        System.out.println(Matriz.matrizTranspuesta(cuadrada));
+        
+        try{
+            System.out.println(Matriz.matrizInversa(cuadrada));
+        } catch(DimensionesIncompatibles ex){
+            ex.printStackTrace();
+        }
     }
-    
+        
 }
