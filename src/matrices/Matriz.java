@@ -47,6 +47,29 @@ public class Matriz {
         } 
         return matrizResultante; 
     } 
+    
+        public static Matriz multiplicarDosMatrices(Matriz a, Matriz b) throws DimensionesIncompatibles { 
+        if(a.getDimension().width != b.getDimension().height) throw new DimensionesIncompatibles("La multiplicación de matrices requiere que A tenga el mismo número de columnas que filas tenga B");        
+                
+        int i, j; 
+        int filasA = a.getDimension().width; 
+        int columnasA = a.getDimension().height; 
+        int filasB = b.getDimension().width; 
+        int columnasB = b.getDimension().height; 
+        
+        Matriz matrizResultante = new Matriz(filasA, columnasB, false);
+        
+        for (int x=0; x < filasA; x++) {
+            for (int y=0; y < columnasB; y++) {
+                for (int z=0; z< columnasA; z++) 
+                {
+                     matrizResultante.datos[x][y] += a.datos[x][z] * b.datos[z][y]; 
+                }
+            }
+        }
+        
+        return matrizResultante; 
+    } 
 
     @Override
     public String toString(){
